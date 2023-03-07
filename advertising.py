@@ -7,13 +7,15 @@ Original file is located at
     https://colab.research.google.com/drive/1z3DlXj4gFk_5lRlTa0paY0x3CsNV5S3m
 """
 
+pip install streamlit
+
 # Supress Warnings
 
 import warnings
 warnings.filterwarnings('ignore')
 
 # Import the numpy and pandas package
-
+import streamlit as st
 import numpy as np
 import pandas as pd
 
@@ -21,7 +23,8 @@ import pandas as pd
 import matplotlib.pyplot as plt 
 import seaborn as sns
 
-advertising = pd.DataFrame(pd.read_csv("Advertising.csv"))
+advertising = st.cache_data(pd.read_csv)("Advertising.csv")
+
 advertising.head()
 
 advertising.shape
